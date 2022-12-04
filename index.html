@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <h1>The Holiday Helper</h1>
+    <div id="application">
+        <div id="left-side">
+            <div id="camera-feed" style="width: 50%; height: 50%;">
+                <p>Camera go here.</p>
+            </div>
+            <div id="instructions" style="height: 20%;">
+                <h3 style="text-align: center;"> Instructions </h3>
+                <p>Our project will use emotion-identifying software to detect if a user wants to “kiss” or “miss” a displayed picture of a person. In other words, this will be like swiping on a dating app but with a user’s facial expressions as the input.
+                    There will be two panels shown on the screen. One panel will be the webcam and another panel will be a gallery of profile pictures. To swipe left (“miss”), a user will display a disgusted facial expression and to swipe right (“kiss”)
+                    a user will display a joyful/smiley facial expression. Once the program detects the facial expression, a status bar will display a user’s response and a new picture will show up on the screen for the user to judge. If we have time
+                    we will also display a log of the user’s recorded responses to each profile picture they viewed.</p>
+            </div>
+        </div>
+        <div id="right-side">
+            <div id="gallery-images">
+                <img id="current-image" src="images/airpurifier.jpg">
+
+            </div>
+            <div id="selection-log">
+                <!--Probably would end up using document.appendChild(a, link)-->
+                <div id="link-holder"></div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
