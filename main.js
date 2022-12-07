@@ -72,6 +72,9 @@ imageArray[13] = new Image();
 imageArray[13].src = "images/toasteroven.jpg";
 
 // currently it's just test information with the link going to the air filter.
+
+// TODO: Individually add product information. Could probably consolidate
+// into a JSON object or add to a class.
 imageArray.forEach((object) => {
     let newProduct = new Product("Test", object.src, 1.1);
     newProduct.setLink("https://a.co/d/5R4oIxt");
