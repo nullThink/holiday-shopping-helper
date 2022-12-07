@@ -71,6 +71,7 @@ imageArray[12].src = "images/sushi_making_kit.jpg";
 imageArray[13] = new Image();
 imageArray[13].src = "images/toasteroven.jpg";
 
+// currently it's just test information with the link going to the air filter.
 imageArray.forEach((object) => {
     let newProduct = new Product("Test", object.src, 1.1);
     newProduct.setLink("https://a.co/d/5R4oIxt");
@@ -82,10 +83,10 @@ var index = 0;
 window.onload = () => {
     textInfo = document.getElementById("text-info");
     textInfo.innerHTML = products[index].toString();
-    console.log(products[index])
 }
 
 function changePic() {
+    console.log(products[index]);
     const curr_image = document.getElementById("current-image");
     const product_info = document.getElementById("text-info");
     if (index < 14) {

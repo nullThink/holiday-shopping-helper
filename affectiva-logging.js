@@ -44,6 +44,7 @@ window.onload = () => {
         console.log("Webcam access denied");
     });
 
+    // potential need for weighting averages since some emotions are more dom.
     function findDominantEmotion() {
         let maxValue = 0;
         let maxValueIndex = 0;
@@ -117,7 +118,7 @@ window.onload = () => {
                         console.log(getEmotionAverage(joyOverTime));
 
                         likedObjectLog.push(products[index]);
-                        log("link-holder", products[index].link);
+                        log("link-list", "")
 
                         joyOverTime = [];
                         disgustOverTime = [];
@@ -157,8 +158,18 @@ window.onload = () => {
         if (debugMode) {
             document.getElementById(node_name).innerHTML += "<span>" + msg + "</span><br/>"
         } else {
-            let newLink = document.createElement("a");
-            document.getElementById(node_name).appendChild(newLink);
+            document.getElementById(node_name).innerHTML = "";
+
+            likedObjectLog.forEach((product) => {
+                let listItem = document.createElement("li")
+                let newLink = document.createElement("a");
+
+                newLink.innerHTML = product.productName;
+                newLink.setAttribute("href", product.link);
+
+                listItem.appendChild(newLink);
+                document.getElementById(node_name).appendChild(listItem);
+            })
         }
     };
 }
