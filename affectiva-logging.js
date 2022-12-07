@@ -117,8 +117,10 @@ window.onload = () => {
                         pictureAnalysisTimestamp = timestamp + 5;
                         console.log(getEmotionAverage(joyOverTime));
 
-                        likedObjectLog.push(products[index]);
-                        log("link-list", "")
+                        if (index < 14) {
+                            likedObjectLog.push(products[index]);
+                            log("link-list", "")
+                        }
 
                         joyOverTime = [];
                         disgustOverTime = [];
