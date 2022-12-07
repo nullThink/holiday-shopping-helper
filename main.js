@@ -1,4 +1,33 @@
 var imageArray = new Array();
+
+let products = [];
+let textInfo;
+
+class Product {
+    constructor(name, image, price) {
+        this.productName = name;
+        this.img = image;
+        this.price = price;
+        this.link = "";
+    }
+
+    toString() {
+        return "Name: " + this.productName + "\n Price: " + this.price;
+    }
+
+    setName(newName) {
+        this.productName = newName;
+    }
+
+    setPrice(newPrice) {
+        this.price = newPrice;
+    }
+
+    setLink(newLink) {
+        this.link = newLink;
+    }
+};
+
 imageArray[0] = new Image();
 imageArray[0].src = "images/airpurifier.jpg";
 
@@ -10,7 +39,6 @@ imageArray[2].src = "images/beard_trimmer.jpg";
 
 imageArray[3] = new Image();
 imageArray[3].src = "images/BobaBlushie.jpg";
-
 
 imageArray[4] = new Image();
 imageArray[4].src = "images/bouquetKit.jpg";
@@ -30,7 +58,6 @@ imageArray[8].src = "images/knitsocks.jpg";
 imageArray[9] = new Image();
 imageArray[9].src = "images/prismacolor_pencils.jpg";
 
-
 imageArray[10] = new Image();
 imageArray[10].src = "images/remarkable tablet.jpg";
 
@@ -44,15 +71,28 @@ imageArray[12].src = "images/sushi_making_kit.jpg";
 imageArray[13] = new Image();
 imageArray[13].src = "images/toasteroven.jpg";
 
-const curr_image = document.getElementById("current-image");
+imageArray.forEach((object) => {
+    let newProduct = new Product("Test", object.src, 1.1);
+    newProduct.setLink("https://a.co/d/5R4oIxt");
+    products.push(newProduct);
+});
 
-// let toggle = true;
-var index = 1;
-curr_image.addEventListener("click", changePic());
+var index = 0;
 
-function changePic(){
-    console.log("HELLO!!!!")
-    curr_image.setAttribute("src", imageArray[index].src);
-    index = (index + 1) % imageArray.length;
+window.onload = () => {
+    textInfo = document.getElementById("text-info");
+    textInfo.innerHTML = products[index].toString();
+    console.log(products[index])
 }
 
+function changePic() {
+    const curr_image = document.getElementById("current-image");
+    const product_info = document.getElementById("text-info");
+    if (index < 14) {
+        console.log(imageArray[index].src);
+        curr_image.setAttribute("src", imageArray[index].src);
+
+        product_info.innerHTML = products[index].toString();
+        index++;
+    }
+}

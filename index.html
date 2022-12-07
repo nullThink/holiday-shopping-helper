@@ -5,7 +5,6 @@
     <script src="https://download.affectiva.com/js/3.2.1/affdex.js"></script>
     <script src="main.js"></script>
     <script src="affectiva-logging.js"></script>
-    <script src= "main.js"> </script>
 
     <meta charset="UTF-8">
     <meta http - equiv="X-UA-Compatible" content="IE=edge">
@@ -30,9 +29,14 @@
             </div>
         </div>
         <div id="right-side">
-            <div id="gallery-images">
-                <img id="current-image" src="images/airpurifier.jpg" onlick = "changePic()">
-
+            <div id="product-information" style="height:80%;">
+                <div id="textual-info">
+                    <h3 id="text-info"></h3>
+                    <!-- Add in product info here using JS -->
+                </div>
+                <div id="gallery-images">
+                    <img id="current-image" src="images/airpurifier.jpg">
+                </div>
             </div>
             <div id="selection-log">
                 <!--Probably would end up using document.appendChild(a, link)-->
