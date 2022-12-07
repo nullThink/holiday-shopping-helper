@@ -89,7 +89,6 @@ window.onload = () => {
 }
 
 function changePic() {
-    console.log(products[index]);
     const curr_image = document.getElementById("current-image");
     const product_info = document.getElementById("text-info");
     if (index < 14) {
