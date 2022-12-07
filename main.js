@@ -44,12 +44,15 @@ imageArray[12].src = "images/sushi_making_kit.jpg";
 imageArray[13] = new Image();
 imageArray[13].src = "images/toasteroven.jpg";
 
-const gallery = document.getElementById("currentImage");
-let toggle = true;
-gallery.addEventListener('click', changePicture() {
-    toggle = !toggle;
-    gallery.src
+const curr_image = document.getElementById("current-image");
 
+// let toggle = true;
+var index = 1;
+curr_image.addEventListener("click", changePic());
 
+function changePic(){
+    console.log("HELLO!!!!")
+    curr_image.setAttribute("src", imageArray[index].src);
+    index = (index + 1) % imageArray.length;
+}
 
-})
