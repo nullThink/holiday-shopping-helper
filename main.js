@@ -38,7 +38,6 @@ class Product {
     }
 };
 
-
 imageArray[0] = new Image();
 imageArray[0].src = "images/airpurifier.jpg";
 imageArray[0].id = "airpurifier";
