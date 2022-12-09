@@ -38,6 +38,7 @@ class Product {
     }
 };
 
+
 imageArray[0] = new Image();
 imageArray[0].src = "images/airpurifier.jpg";
 imageArray[0].id = "airpurifier";
@@ -87,8 +88,6 @@ imageArray[10].id = "rem_tablet";
 
 // TODO: Individually add product information. Could probably consolidate
 // into a JSON object or add to a class.
-
-
 function populateProducts() {
     for (var i = 0; i < imageArray.length; i++) {
         let newProduct;
