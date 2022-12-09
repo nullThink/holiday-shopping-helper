@@ -9,6 +9,7 @@ let disgustOverTime = [];
 let contemptOverTime = [];
 let sadOverTime = [];
 let angerOvertime = [];
+let likedIndex = 0;
 
 const emotions = ["joy", "sadness", "disgust", "contempt", "anger"];
 
@@ -118,8 +119,10 @@ window.onload = () => {
                         console.log(getEmotionAverage(joyOverTime));
 
                         if (index < 14) {
-                            likedObjectLog.push(products[index]);
+                            likedObjectLog.push(products[likedIndex]);
                             log("link-list", "")
+                            //valeria added
+                            likedIndex++;
                         }
 
                         joyOverTime = [];
@@ -133,15 +136,17 @@ window.onload = () => {
                         console.log("Disliked")
                         pictureAnalysisTimestamp = timestamp + 5;
                         console.log(getEmotionAverage(disgustOverTime));
-
                         joyOverTime = [];
                         disgustOverTime = [];
                         contemptOverTime = [];
                         sadOverTime = [];
                         angerOvertime = [];
+                        likedIndex++;
                     }
                 } else {
+                    changePic();
                     console.log("Waiting");
+                    likedIndex++;
                 }
             }
         }
@@ -167,6 +172,7 @@ window.onload = () => {
                 let newLink = document.createElement("a");
 
                 newLink.innerHTML = product.productName;
+                console.log("PRODUCT: " + product.productName);
                 newLink.setAttribute("href", product.link);
 
                 listItem.appendChild(newLink);
