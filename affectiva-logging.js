@@ -174,6 +174,11 @@ window.onload = () => {
                     listItem.appendChild(newLink);
                     document.getElementById(node_name).appendChild(listItem);
                 })
+
+                // REALLY BAD FIX (manually increments index by 1 so that log is not reset)
+                if (index == products.length) {
+                    index++;
+                }
             }
         }
     };
