@@ -10,6 +10,7 @@ let contemptOverTime = [];
 let sadOverTime = [];
 let angerOvertime = [];
 
+
 const emotions = ["joy", "sadness", "disgust", "contempt", "anger"];
 
 window.onload = () => {
@@ -109,16 +110,14 @@ window.onload = () => {
                     log("link-holder", "Emoji: " + faces[0].emojis.dominantEmoji);
                 }
 
+                if (findDominantEmotion()[1] == "joy") {
+                    console.log("Added to Likes")
+                    pictureAnalysisTimestamp = timestamp + 5;
+                    console.log(getEmotionAverage(joyOverTime));
 
-                if (findDominantEmotion()[0] > 0) {
-                    if (findDominantEmotion()[1] == "joy") {
-                        changePic();
-                        console.log("Added to Likes")
-                        pictureAnalysisTimestamp = timestamp + 5;
-                        console.log(getEmotionAverage(joyOverTime));
-
-                        if (index < 14) {
-                            likedObjectLog.push(products[index]);
+                    if (index <= products.length) {
+                        if (index != 0) {
+                            likedObjectLog.push(products[index - 1]);
                             log("link-list", "")
                         }
 
@@ -127,22 +126,23 @@ window.onload = () => {
                         contemptOverTime = [];
                         sadOverTime = [];
                         angerOvertime = [];
-                    } else
-                    if (findDominantEmotion()[1] == "contempt" || findDominantEmotion()[1] == "disgust") {
-                        changePic();
-                        console.log("Disliked")
-                        pictureAnalysisTimestamp = timestamp + 5;
-                        console.log(getEmotionAverage(disgustOverTime));
 
-                        joyOverTime = [];
-                        disgustOverTime = [];
-                        contemptOverTime = [];
-                        sadOverTime = [];
-                        angerOvertime = [];
+                        changePic();
                     }
-                } else {
-                    console.log("Waiting");
+                } else if (findDominantEmotion()[1] != "joy") {
+                    console.log("Disliked")
+                    pictureAnalysisTimestamp = timestamp + 5;
+                    console.log(getEmotionAverage(disgustOverTime));
+
+                    joyOverTime = [];
+                    disgustOverTime = [];
+                    contemptOverTime = [];
+                    sadOverTime = [];
+                    angerOvertime = [];
+                    changePic();
                 }
+            } else {
+                console.log("Waiting");
             }
         }
     });
@@ -160,18 +160,21 @@ window.onload = () => {
         if (debugMode) {
             document.getElementById(node_name).innerHTML += "<span>" + msg + "</span><br/>"
         } else {
-            document.getElementById(node_name).innerHTML = "";
+            if (index <= products.length) {
+                document.getElementById(node_name).innerHTML = "";
 
-            likedObjectLog.forEach((product) => {
-                let listItem = document.createElement("li")
-                let newLink = document.createElement("a");
+                likedObjectLog.forEach((product) => {
+                    let listItem = document.createElement("li")
+                    let newLink = document.createElement("a");
 
-                newLink.innerHTML = product.productName;
-                newLink.setAttribute("href", product.link);
+                    newLink.innerHTML = product.getName();
+                    newLink.setAttribute("href", product.getLink());
+                    newLink.setAttribute("target", "_blank");
 
-                listItem.appendChild(newLink);
-                document.getElementById(node_name).appendChild(listItem);
-            })
+                    listItem.appendChild(newLink);
+                    document.getElementById(node_name).appendChild(listItem);
+                })
+            }
         }
     };
 }

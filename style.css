@@ -1,12 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Cabin&family=Economica&family=Josefin+Sans:wght@500&family=Oxygen:wght@300&family=Roboto+Slab&display=swap');
 
 :root{
-    --light-green: #9cfc97;
-    --dark-green: #6fd086;
+    --light-green: #27AE60;
+    --dark-green: #1E8449;
     --red:  #ce4760;
     --white: #fcf7ff;
     --black: #0e0004; 
     --dark-red: #b12f47;
+    --dark-gold: #D4AC0D;
+    --light-gold: #F9E79F;
 }
 
 body{
@@ -38,6 +40,7 @@ body{
     padding-top: 10px;
 
     height: 80vh;
+    padding: 20px;
     margin: 20px;
 }
 
@@ -47,7 +50,7 @@ body{
     background-color: var(--light-green);
     color: var(--black);
 
-    padding: 10px;
+    padding: 20px;
     height: 80vh;
     margin: 20px;
 }
@@ -58,21 +61,24 @@ h1{
 }
 
 img{
-    width: 30%;
-    //height: 30%;
-    border-radius: 20px;
-    border: 2px solid var(--black);
+    width: 40%;
+    height: 40%;
+    border-radius: 6px;
+    /* border: 8px solid var(--dark-gold);
+} */
+}
+#gallery-images{
+    text-align: center;
+    padding: 30px,30px,30px,30px;
 }
 
-#gallery-images{
-    text-align: right;
-}
 
 #selection-log{
-    background-color: #f5f5dc;
-    height: 20%;
-    border-radius: 10px;
-    border: 2px solid var(--black)
+    background-color: var(--light-gold);
+    max-height: 58%;
+    border-radius: 0px;
+    border: 8px solid var(--dark-gold);
+    margin-top: 10px;
 }
 
 p{
@@ -80,7 +86,7 @@ p{
 }
 
 a{
-    font-size: 14px;
+    font-size: 16px;
 }
 
 ul{
